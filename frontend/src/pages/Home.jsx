@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
 
 const stats = [
-  { label: "Active Schemes", value: "200+" },
+  { label: "Active Schemes", value: "450+" },
   { label: "States Covered", value: "36" },
   { label: "Citizens Helped", value: "2M+" },
   { label: "Categories", value: "12" },
@@ -104,7 +104,7 @@ export default function Home() {
             <motion.div variants={itemVariants}>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-sm font-medium border border-white/20 mb-6">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                200+ Government Schemes Available
+                450+ Government Schemes Available
               </span>
             </motion.div>
 
