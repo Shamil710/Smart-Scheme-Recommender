@@ -35,9 +35,8 @@ const beneficiaryCategories = [
   "ST",
   "EWS",
   "Minority",
-  "Women",
-  "Disabled",
 ];
+
 const states = [
   "All India",
   "Andhra Pradesh",
