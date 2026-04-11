@@ -25,6 +25,7 @@ const categories = [
 ];
 const states = [
   "",
+  "Central",
   "Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
@@ -71,23 +72,6 @@ export default function ExploreSchemes() {
   useEffect(() => {
     fetchSchemes();
   }, [category, state, search]);
-
-  // useEffect(() => {
-  //   const fetchSaved = async () => {
-  //     try {
-  //       const res = await schemeService.getSavedSchemes();
-
-  //       // extract IDs only
-  //       const ids = (res.data?.data || []).map((s) => s.id || s.scheme_id);
-  //       console.log("Saved schemes:", res.data.data);
-  //       setSavedIds(ids);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-
-  //   fetchSaved();
-  // }, []);
 
   useEffect(() => {
     const fetchSaved = async () => {
