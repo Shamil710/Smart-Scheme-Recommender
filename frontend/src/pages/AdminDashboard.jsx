@@ -44,7 +44,7 @@ export default function AdminDashboard() {
 
   const topCategories = Object.entries(categoryBreakdown)
     .sort(([, a], [, b]) => b - a)
-    .slice(0, 5);
+    .slice(0, 7);
 
   const quickActions = [
     {

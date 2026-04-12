@@ -33,19 +33,19 @@ const categories = [
   {
     icon: "🏠",
     label: "Housing",
-    count: "43 schemes",
+    count: "63 schemes",
     color: "from-amber-400 to-orange-500",
   },
   {
     icon: "💼",
     label: "Employment",
-    count: "57 schemes",
+    count: "87 schemes",
     color: "from-purple-400 to-violet-500",
   },
   {
-    icon: "💰",
-    label: "Finance",
-    count: "38 schemes",
+    icon: "🧑‍🤝‍🧑",
+    label: "Social Justice",
+    count: "68 schemes",
     color: "from-cyan-400 to-teal-500",
   },
 ];

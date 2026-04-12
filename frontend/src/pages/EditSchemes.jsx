@@ -39,7 +39,7 @@ const beneficiaryCategories = [
   "Disabled",
 ];
 const states = [
-  "All India",
+  "central",
   "Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
