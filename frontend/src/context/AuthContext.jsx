@@ -81,7 +81,7 @@ export function AuthProvider({ children }) {
         register,
         logout,
         updateUser,
-        isAdmin: user?.role === "admin",
+        isAdmin: user?.role?.trim() === "admin",
         isLoggedIn: !!user,
       }}
     >

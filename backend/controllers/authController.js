@@ -62,15 +62,17 @@ export const loginUser = async (req, res) => {
     }
 
     // 3️⃣ Generate JWT token
+    const cleanRole = (user.role || "").trim();
+
     const token = jwt.sign(
-      { id: user.id, email: user.email, role: user.role }, // payload
-      process.env.JWT_SECRET, // secret
-      { expiresIn: "1h" }, // expiry
+      { id: user.id, email: user.email, role: cleanRole },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" },
     );
 
     // 4️⃣ Remove password
     const { password: _, ...userWithoutPassword } = user;
-
+    userWithoutPassword.role = cleanRole; // Ensure role is trimmed in response
     // 5️⃣ Send response
     res.json({
       message: "Login successful",

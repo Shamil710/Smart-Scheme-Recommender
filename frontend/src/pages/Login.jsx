@@ -5,13 +5,26 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
 import Loader from "../components/Loader";
+import { useEffect } from "react";
 
 export default function Login() {
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(faslse);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      const role = user.role?.trim();
+
+      if (role === "admin") {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate("/dashboard", { replace: true });
+      }
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,28 +33,15 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.email || !form.password) {
-      setError("Please fill in all fields.");
-      return;
-    }
 
     setLoading(true);
     setError("");
 
     try {
-      // login() in AuthContext calls authService.login()
-      // which saves token, sets user state, and returns { success, data: { token, user } }
       const res = await login(form);
-
       console.log("🚀 Login result in Login.jsx:", res);
 
-      // Redirect based on role
-      const role = res.data?.user?.role;
-      if (role === "admin") {
-        navigate("/admin", { replace: true });
-      } else {
-        navigate("/dashboard", { replace: true });
-      }
+      // ✅ NO NAVIGATION HERE
     } catch (err) {
       console.error("❌ Login error:", err);
       const msg =
@@ -53,6 +53,42 @@ export default function Login() {
       setLoading(false);
     }
   };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!form.email || !form.password) {
+  //     setError("Please fill in all fields.");
+  //     return;
+  //   }
+
+  //   setLoading(true);
+  //   setError("");
+
+  //   try {
+  //     // login() in AuthContext calls authService.login()
+  //     // which saves token, sets user state, and returns { success, data: { token, user } }
+  //     const res = await login(form);
+
+  //     console.log("🚀 Login result in Login.jsx:", res);
+
+  //     // Redirect based on role
+  //     const role = (res.data.role || res.data.user?.role)?.trim();
+  //     console.log("ROLE:", role, "| length:", role.length);
+  //     if (role === "admin") {
+  //       navigate("/admin", { replace: true });
+  //     } else {
+  //       navigate("/dashboard", { replace: true });
+  //     }
+  //   } catch (err) {
+  //     console.error("❌ Login error:", err);
+  //     const msg =
+  //       err.response?.data?.message ||
+  //       err.message ||
+  //       "Invalid email or password.";
+  //     setError(msg);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-4">
