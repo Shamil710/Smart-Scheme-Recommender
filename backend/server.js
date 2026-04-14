@@ -10,15 +10,7 @@ import eligibilityRoutes from "./routes/eligibilityRoutes.js";
 import cors from "cors";
 
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://smart-scheme-recommender.vercel.app",
-    ],
-    credentials: true,
-  }),
-);
+app.use(cors());
 
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
