@@ -27,20 +27,9 @@ export default function SavedSchemes() {
     }
   };
 
-  // const handleUnsave = async (id) => {
-  //   try {
-  //     await schemeService.unsaveScheme(id);
-  //     setSchemes((prev) => prev.filter((s) => s.scheme_id !== id));
-  //     toast.success("Removed from saved");
-  //   } catch {
-  //     toast.error("Failed to remove scheme");
-  //   }
-  // };
-
   const handleUnsave = async (id) => {
     try {
       await schemeService.unsaveScheme(id);
-
       setSchemes((prev) => prev.filter((s) => s.id !== id));
       console.log("Deleting ID:", id);
       console.log("Before:", schemes);

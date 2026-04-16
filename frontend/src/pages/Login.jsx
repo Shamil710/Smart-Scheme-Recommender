@@ -53,42 +53,6 @@ export default function Login() {
       setLoading(false);
     }
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (!form.email || !form.password) {
-  //     setError("Please fill in all fields.");
-  //     return;
-  //   }
-
-  //   setLoading(true);
-  //   setError("");
-
-  //   try {
-  //     // login() in AuthContext calls authService.login()
-  //     // which saves token, sets user state, and returns { success, data: { token, user } }
-  //     const res = await login(form);
-
-  //     console.log("🚀 Login result in Login.jsx:", res);
-
-  //     // Redirect based on role
-  //     const role = (res.data.role || res.data.user?.role)?.trim();
-  //     console.log("ROLE:", role, "| length:", role.length);
-  //     if (role === "admin") {
-  //       navigate("/admin", { replace: true });
-  //     } else {
-  //       navigate("/dashboard", { replace: true });
-  //     }
-  //   } catch (err) {
-  //     console.error("❌ Login error:", err);
-  //     const msg =
-  //       err.response?.data?.message ||
-  //       err.message ||
-  //       "Invalid email or password.";
-  //     setError(msg);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-4">

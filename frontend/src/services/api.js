@@ -20,11 +20,16 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
+    if (!error.response) {
+      console.log("Server waking up...");
+    }
+
     if (error.response?.status === 401) {
       localStorage.removeItem("govscheme_token");
       localStorage.removeItem("govscheme_user");
       window.location.href = "/login";
     }
+
     return Promise.reject(error);
   },
 );

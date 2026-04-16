@@ -110,7 +110,7 @@ export default function ExploreSchemes() {
       if (res.success) setSchemes(res.data || []);
     } catch (err) {
       console.error(err);
-      toast.error("Failed to load schemes");
+      toast.error("Server is waking up... please wait ⏳");
     } finally {
       setLoading(false);
     }
