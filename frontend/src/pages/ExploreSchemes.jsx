@@ -83,6 +83,8 @@ export default function ExploreSchemes() {
         const ids = (res.data || []).map((s) => s.id || s.scheme_id);
 
         setSavedIds(ids);
+        console.log("PROD RESPONSE:", res);
+        console.log("PROD DATA:", res.data);
       } catch (err) {
         console.error(err);
       }
