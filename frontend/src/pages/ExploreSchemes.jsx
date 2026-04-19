@@ -116,19 +116,19 @@ export default function ExploreSchemes() {
     }
   };
 
-  const fetchSaved = async () => {
-    try {
-      const res = await schemeService.getSavedSchemes();
+  // const fetchSaved = async () => {
+  //   try {
+  //     const res = await schemeService.getSavedSchemes();
 
-      if (res.success) {
-        const savedSchemeIds = res.data.map((s) => s.scheme_id); // ✅ IMPORTANT
-        setSavedIds(savedSchemeIds);
-        console.log("Fetched saved scheme IDs:", res.data, savedSchemeIds); // Debug log
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     if (res.success) {
+  //       const savedSchemeIds = res.data.map((s) => s.scheme_id); // ✅ IMPORTANT
+  //       setSavedIds(savedSchemeIds);
+  //       console.log("Fetched saved scheme IDs:", res.data, savedSchemeIds); // Debug log
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   const handleSave = async (id) => {
     try {
