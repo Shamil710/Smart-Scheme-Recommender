@@ -39,6 +39,8 @@ export const getUserSavedSchemes = async (req, res) => {
     const savedSchemes = await getSavedSchemes(userId);
     console.log("USER ID:", userId);
     console.log("SAVED SCHEMES:", savedSchemes);
+    console.log("🔥 PROD USER ID:", req.user.id);
+    console.log("🔥 FETCHED FROM DB:", savedSchemes);
 
     res.json({
       message: "Saved schemes retrieved successfully",
