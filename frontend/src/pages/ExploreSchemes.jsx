@@ -80,7 +80,7 @@ export default function ExploreSchemes() {
       try {
         const res = await schemeService.getSavedSchemes();
 
-        const ids = (res.data?.data || []).map((s) => s.id || s.scheme_id);
+        const ids = (res.data || []).map((s) => s.id || s.scheme_id);
 
         setSavedIds(ids);
       } catch (err) {
