@@ -89,7 +89,7 @@ export default function ExploreSchemes() {
     };
 
     fetchSaved();
-  }, [isLoggedIn]);
+  }, []); // ✅ IMPORTANT
 
   const fetchSchemes = async () => {
     setLoading(true);
