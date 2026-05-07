@@ -115,7 +115,7 @@ export default function Home() {
               Find Government Schemes
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-civic-300 to-amber-300">
-                You're Eligible For
+                You're Eligible Forrrrrr
               </span>
             </motion.h1>
 
